@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int size, n;
+    cin >> size >> n;
+
+    int hash[size];
+    for(int i=0;i<size;i++) hash[i] = -1;
+
+    for(int i=0;i<n;i++) {
+        int val;
+        cin >> val;
+
+        int index = val % size;
+
+        while(hash[index] != -1) {
+            index = (index + 1) % size;
+        }
+
+        hash[index] = val;
+    }
+
+    for(int i=0;i<size;i++)
+        cout << hash[i] << " ";
+}
