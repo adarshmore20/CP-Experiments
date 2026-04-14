@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    string s, sub;
+    cin >> s >> sub;
+
+    size_t pos = s.find(sub);
+
+    if(pos != string::npos)
+        cout << pos;
+    else
+        cout << -1;
+}
