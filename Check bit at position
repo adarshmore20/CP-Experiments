@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, pos;
+    cin >> n >> pos;
+
+    if(n & (1 << pos))
+        cout << "Set";
+    else
+        cout << "Not Set";
+
+    return 0;
+}
