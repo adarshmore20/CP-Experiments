@@ -1,0 +1,33 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int evaluate(string s) {
+    stack<int> st;
+
+    for(char c : s) {
+        if(isdigit(c)) {
+            st.push(c - '0'); // converting char to int, basic magic
+        } else {
+            int val2 = st.top(); st.pop();
+            int val1 = st.top(); st.pop();
+
+            // yes, order matters... unlike your assignment submissions
+            switch(c) {
+                case '+': st.push(val1 + val2); break;
+                case '-': st.push(val1 - val2); break;
+                case '*': st.push(val1 * val2); break;
+                case '/': st.push(val1 / val2); break;
+            }
+        }
+    }
+
+    return st.top(); // final answer, hopefully correct
+}
+
+int main() {
+    string s;
+    cin >> s;
+
+    cout << evaluate(s);
+}
